@@ -61,56 +61,9 @@ const Features: React.FC = () => {
             <p className="text-gray-600 mb-6 leading-relaxed">
               {feature.description}
             </p>
-
-            {/* CTA */}
-            <Button
-              variant="ghost"
-              size="sm"
-              icon={ArrowRight}
-              iconPosition="right"
-              className="group-hover:text-primary-600 transition-colors duration-300"
-              onClick={() => {
-                // Handle feature navigation when href is available
-                if (feature.href) {
-                  console.log(`Navigate to ${feature.href}`);
-                }
-              }}
-            >
-              Aprender más
-            </Button>
           </motion.div>
         ))}
       </div>
-
-      {/* Bottom CTA */}
-      <motion.div
-        className="text-center mt-16"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <h3 className="text-2xl font-bold text-gray-900 mb-4">
-          ¿Listo para comenzar tu preparación?</h3>
-        <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-          Únete a cientos de estudiantes que ya han logrado su lugar 
-          en la universidad con nuestro método comprobado.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-          <Button 
-            size="lg" 
-            icon={ArrowRight} 
-            iconPosition="right"
-            onClick={() => window.open('https://wa.me/525512345678', '_blank')}
-            className="bg-green-500 hover:bg-green-600 text-white"
-          >
-            Comenzar Ahora
-          </Button>
-          <Button variant="secondary" size="lg">
-            Hablar con un Asesor
-          </Button>
-        </div>
-      </motion.div>
     </Section>
   );
 };

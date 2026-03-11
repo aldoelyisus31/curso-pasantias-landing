@@ -37,12 +37,17 @@ const Header: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="p-2 bg-primary-600 rounded-lg">
+            <div className="p-2 bg-blue-600 rounded-lg shadow-md">
               <GraduationCap className="h-6 w-6 text-white" />
             </div>
-            <span className="text-xl lg:text-2xl font-bold text-gray-900">
-              Curso CENEVAL
-            </span>
+            <div className="flex flex-col">
+              <span className="text-xl lg:text-2xl font-bold text-gray-900 leading-tight">
+                CENEVAL MX
+              </span>
+              <span className="text-xs text-gray-600 font-medium -mt-1">
+                Tu acceso a universidad pública
+              </span>
+            </div>
           </motion.div>
 
           {/* Desktop Navigation */}

@@ -1,8 +1,8 @@
 export { default as Hero } from './Hero';
+export { default as VideoPresentation } from './VideoPresentation';
 export { default as Features } from './Features';
 export { default as Universities } from './Universities';
 export { default as Tutors } from './Tutors';
-export { default as Inscription } from './Inscription';
 export { default as FAQ } from './FAQ';
 export { default as About } from './About';
 export { default as Testimonials } from './Testimonials';

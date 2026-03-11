@@ -159,63 +159,6 @@ const FAQ: React.FC = () => {
         </div>
       </div>
 
-      {/* Bottom CTA */}
-      <motion.div
-        className="mt-16 text-center bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-12"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-          ¿No encontraste la respuesta que buscabas?
-        </h3>
-        <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-          Nuestro equipo de asesores académicos está disponible para resolver 
-          cualquier duda específica sobre el programa, métodos de pago o tu preparación.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-          <button
-            onClick={() => window.open('https://wa.me/525512345678', '_blank')}
-            className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
-          >
-            <MessageCircle className="h-5 w-5" />
-            <span>Contactar Asesor</span>
-          </button>
-          <button 
-            onClick={() => window.open('tel:+526181316769', '_blank')}
-            className="bg-white text-gray-700 border border-gray-300 hover:border-gray-400 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
-          >
-            Llamar al 618 131 67 69
-          </button>
-        </div>
-
-        {/* Additional Contact Info */}
-        <motion.div
-          className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.0 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-center">
-            <div className="text-2xl font-bold text-gray-900 mb-2">📧</div>
-            <div className="text-gray-600 font-medium">Email</div>
-            <div className="text-gray-500 text-sm">info@curso-ceneval.com</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-gray-900 mb-2">⏰</div>
-            <div className="text-gray-600 font-medium">Horario de atención</div>
-            <div className="text-gray-500 text-sm">Lun - Sab: 8:00 AM - 8:00 PM</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-gray-900 mb-2">⚡</div>
-            <div className="text-gray-600 font-medium">Respuesta</div>
-            <div className="text-gray-500 text-sm">Menos de 30 minutos</div>
-          </div>
-        </motion.div>
-      </motion.div>
     </Section>
   );
 };
