@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  GraduationCap, 
   Mail, 
   Phone, 
   MapPin, 
@@ -14,6 +13,7 @@ import {
 import { SITE_CONFIG, SOCIAL_LINKS, NAVIGATION_ITEMS } from '@/constants';
 import { scrollToElement } from '@/utils';
 import { Container } from '@/components/ui';
+import logoImage from '@/assets/images/Logo/logoTRANSPARENTE.png';
 
 const Footer: React.FC = () => {
   return (
@@ -27,9 +27,11 @@ const Footer: React.FC = () => {
                 className="flex items-center space-x-3"
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="p-2 bg-primary-600 rounded-lg">
-                  <GraduationCap className="h-6 w-6 text-white" />
-                </div>
+                <img
+                  src={logoImage}
+                  alt="Logo Curso CENEVAL"
+                  className="h-11 w-11 rounded-lg object-contain"
+                />
                 <span className="text-xl font-bold">
                   {SITE_CONFIG.name}
                 </span>

@@ -142,7 +142,7 @@ const FAQ: React.FC = () => {
                           className="mt-4"
                         >
                           <button
-                            onClick={() => window.open('https://wa.me/525512345678', '_blank')}
+                            onClick={() => window.open('https://wa.me/526181316769', '_blank')}
                             className="inline-flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors duration-200"
                           >
                             <MessageCircle className="h-4 w-4" />

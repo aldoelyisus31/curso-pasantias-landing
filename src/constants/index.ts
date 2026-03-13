@@ -15,7 +15,7 @@ export const SITE_CONFIG = {
   email: 'admisiones@ceneval-mx.com',
   phone: '+52 (55) 4567-8901',
   address: 'Ciudad de México, México',
-  whatsapp: 'https://wa.me/5255456789012?text=Hola!%20Quiero%20información%20sobre%20el%20curso%20CENEVAL%20para%20entrar%20a%20universidad%20pública\ud83c\udf93',
+  whatsapp: 'https://wa.me/526181316769?text=Hola!%20Quiero%20información%20sobre%20el%20curso%20CENEVAL',
 };
 
 export const NAVIGATION_ITEMS: NavItem[] = [
@@ -103,7 +103,7 @@ export const CTA_CONFIG: CTAConfig = {
   description: 'Únete a cientos de estudiantes que ya han logrado ingresar a su universidad de sueños con nuestro curso.',
   primaryButton: {
     text: 'Inicia tu Preparación Hoy',
-    href: 'https://wa.me/525512345678',
+    href: 'https://wa.me/526181316769',
   },
   secondaryButton: {
     text: 'Más Información',

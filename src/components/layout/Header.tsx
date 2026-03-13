@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, GraduationCap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useScrollPosition } from '@/hooks';
 import { scrollToElement, cn } from '@/utils';
-import { NAVIGATION_ITEMS, SITE_CONFIG } from '@/constants';
-import { Container, Button } from '@/components/ui';
+import { NAVIGATION_ITEMS } from '@/constants';
+import { Container } from '@/components/ui';
+import logoTransparent from '@/assets/images/Logo/logoTRANSPARENTE.png';
+import logoWithBackground from '@/assets/images/Logo/Curso-PasantíasFONDO.png';
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScrollPosition();
 
   const isScrolled = scrollY > 20;
+  const currentLogo = isScrolled ? logoTransparent : logoWithBackground;
 
   const handleNavClick = (href: string) => {
     scrollToElement(href);
@@ -30,33 +33,50 @@ const Header: React.FC = () => {
       transition={{ duration: 0.6 }}
     >
       <Container>
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="relative flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <motion.div
             className="flex items-center space-x-3"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="p-2 bg-blue-600 rounded-lg shadow-md">
-              <GraduationCap className="h-6 w-6 text-white" />
-            </div>
+            <img
+              src={currentLogo}
+              alt="Logo Curso CENEVAL"
+              className="h-11 w-11 rounded-lg object-contain shadow-md"
+            />
             <div className="flex flex-col">
-              <span className="text-xl lg:text-2xl font-bold text-gray-900 leading-tight">
-                CENEVAL MX
+              <span
+                className={cn(
+                  'text-xl lg:text-2xl font-bold leading-tight transition-colors duration-300',
+                  isScrolled ? 'text-gray-900' : 'text-white'
+                )}
+              >
+                Curso-Pasantias
               </span>
-              <span className="text-xs text-gray-600 font-medium -mt-1">
-                Tu acceso a universidad pública
+              <span
+                className={cn(
+                  'text-xs font-medium -mt-1 transition-colors duration-300',
+                  isScrolled ? 'text-gray-600' : 'text-white/85'
+                )}
+              >
+                Pasas tu, pasamos todos.
               </span>
             </div>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2">
             {NAVIGATION_ITEMS.map((item) => (
               <motion.button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200"
+                className={cn(
+                  'font-medium transition-colors duration-200',
+                  isScrolled
+                    ? 'text-gray-700 hover:text-primary-600'
+                    : 'text-white/90 hover:text-white'
+                )}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -65,25 +85,14 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <Button
-              onClick={() => handleNavClick('#contact')}
-              variant="secondary"
-            >
-              Contacto
-            </Button>
-            <Button
-              onClick={() => handleNavClick('#signup')}
-              variant="primary"
-            >
-              Inscríbete
-            </Button>
-          </div>
-
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-gray-700 hover:text-primary-600 transition-colors duration-200"
+            className={cn(
+              'lg:hidden p-2 transition-colors duration-200',
+              isScrolled
+                ? 'text-gray-700 hover:text-primary-600'
+                : 'text-white hover:text-white/80'
+            )}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -115,22 +124,6 @@ const Header: React.FC = () => {
                     {item.label}
                   </button>
                 ))}
-                <div className="flex flex-col space-y-3 pt-4 border-t border-gray-200">
-                  <Button
-                    onClick={() => handleNavClick('#contact')}
-                    variant="secondary"
-                    size="sm"
-                  >
-                    Contacto
-                  </Button>
-                  <Button
-                    onClick={() => handleNavClick('#signup')}
-                    variant="primary"
-                    size="sm"
-                  >
-                    Inscríbete
-                  </Button>
-                </div>
               </nav>
             </motion.div>
           )}

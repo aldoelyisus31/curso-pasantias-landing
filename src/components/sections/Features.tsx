@@ -25,7 +25,7 @@ const Features: React.FC = () => {
           viewport={{ once: true }}
         >
           Todo lo que necesitas para
-          <span className="block gradient-text">asegurar tu lugar en la universidad</span>
+          <span className="block gradient-text leading-[1.15] pb-1">asegurar tu lugar en la universidad</span>
         </motion.h2>
         <motion.p
           className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto"

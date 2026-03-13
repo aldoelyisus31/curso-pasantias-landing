@@ -1,12 +1,31 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { Play, Users, Award, Clock } from 'lucide-react';
 import { Section } from '@/components/ui';
 
 const VideoPresentation: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const isInView = useInView(sectionRef, { amount: 0.55 });
+
+  useEffect(() => {
+    if (!videoRef.current) {
+      return;
+    }
+
+    if (isInView) {
+      void videoRef.current.play().catch(() => {
+        // Autoplay can still be blocked by user/browser settings.
+      });
+      return;
+    }
+
+    videoRef.current.pause();
+  }, [isInView]);
+
   return (
     <Section id="video-presentation" background="gray">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div ref={sectionRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Video Side */}
         <motion.div
           className="relative"
@@ -18,8 +37,10 @@ const VideoPresentation: React.FC = () => {
           {/* Video Container */}
           <div className="relative bg-slate-900 rounded-2xl overflow-hidden shadow-2xl">
             <video
+              ref={videoRef}
               className="w-full h-auto aspect-video object-cover"
               controls
+              muted
               poster="/src/assets/images/video-thumbnail.jpg" // Optional thumbnail
               preload="metadata"
             >

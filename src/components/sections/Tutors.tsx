@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, PenTool, Target, MessageCircle } from 'lucide-react';
+import { BookOpen, PenTool, Target } from 'lucide-react';
 import { Section } from '@/components/ui';
 
 const Tutors: React.FC = () => {
@@ -173,19 +173,16 @@ const Tutors: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-rose-500 to-slate-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm" />
               
               {/* Image Section */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-[300px] overflow-hidden bg-slate-100">
                 <img 
                   src={tutor.image} 
                   alt={tutor.name}
-                  className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${
-                    tutor.name.includes('Diana') ? 'object-top' :
-                    tutor.name.includes('Leslie') ? 'object-top' :
-                    tutor.name.includes('Yareli') ? 'object-top' :
-                    tutor.name.includes('América') ? 'object-top' :
-                    tutor.name.includes('Cassandra') ? 'object-center' :
-                    tutor.name.includes('Daniel') ? 'object-center' :
-                    'object-center'
-                  }`}
+                  className="w-full h-full object-contain object-center p-2 sm:p-3 transition-transform duration-500 sm:group-hover:scale-105"
+                  style={{
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 80%, transparent 100%)',
+                    maskImage: 'linear-gradient(to bottom, black 0%, black 80%, transparent 100%)',
+                    filter: 'drop-shadow(0 8px 16px rgba(15, 23, 42, 0.15))',
+                  }}
                   onError={(e) => {
                     // Fallback if image doesn't load
                     const target = e.target as HTMLImageElement;
