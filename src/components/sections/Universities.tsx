@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, MapPin, Star } from 'lucide-react';
+import { GraduationCap, MapPin } from 'lucide-react';
 import { Section } from '@/components/ui';
 
 const Universities: React.FC = () => {

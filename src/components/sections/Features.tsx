@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import { FEATURES } from '@/constants';
-import { Button, Section } from '@/components/ui';
+import { Section } from '@/components/ui';
 
 const Features: React.FC = () => {
   return (

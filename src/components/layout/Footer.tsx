@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Mail, 
   Phone, 
   MapPin, 
   Facebook, 
@@ -97,15 +96,6 @@ const Footer: React.FC = () => {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold">Contacto</h3>
               <div className="space-y-3 text-gray-300 text-sm">
-                <div className="flex items-start space-x-3">
-                  <Mail className="h-4 w-4 mt-0.5 text-primary-400" />
-                  <a
-                    href={`mailto:${SITE_CONFIG.email}`}
-                    className="hover:text-white transition-colors duration-200"
-                  >
-                    {SITE_CONFIG.email}
-                  </a>
-                </div>
                 <div className="flex items-start space-x-3">
                   <Phone className="h-4 w-4 mt-0.5 text-primary-400" />
                   <a

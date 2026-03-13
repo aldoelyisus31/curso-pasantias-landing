@@ -13,8 +13,8 @@ export const SITE_CONFIG = {
   description: 'Curso de Preparación CENEVAL #1 en México - Tu acceso garantizado a la universidad pública.',
   url: 'https://curso-ceneval.mx',
   email: 'admisiones@ceneval-mx.com',
-  phone: '+52 (55) 4567-8901',
-  address: 'Ciudad de México, México',
+  phone: '+52 6181316769',
+  address: 'Durango, Dgo, México',
   whatsapp: 'https://wa.me/526181316769?text=Hola!%20Quiero%20información%20sobre%20el%20curso%20CENEVAL',
 };
 

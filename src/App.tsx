@@ -1,13 +1,15 @@
+import { Suspense, lazy } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Hero from '@/components/sections/Hero';
-import VideoPresentation from '@/components/sections/VideoPresentation';
-import Features from '@/components/sections/Features';
-import Universities from '@/components/sections/Universities';
-import Tutors from '@/components/sections/Tutors';
-import FAQ from '@/components/sections/FAQ';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
+
+const VideoPresentation = lazy(() => import('@/components/sections/VideoPresentation'));
+const Features = lazy(() => import('@/components/sections/Features'));
+const Universities = lazy(() => import('@/components/sections/Universities'));
+const Tutors = lazy(() => import('@/components/sections/Tutors'));
+const FAQ = lazy(() => import('@/components/sections/FAQ'));
 
 function App() {
   return (
@@ -16,11 +18,13 @@ function App() {
         <Header />
         <main>
           <Hero />
-          <VideoPresentation />
-          <Features />
-          <Universities />
-          <Tutors />
-          <FAQ />
+          <Suspense fallback={null}>
+            <VideoPresentation />
+            <Features />
+            <Universities />
+            <Tutors />
+            <FAQ />
+          </Suspense>
         </main>
         <Footer />
         <WhatsAppButton />

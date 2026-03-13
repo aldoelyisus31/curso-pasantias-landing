@@ -2,101 +2,111 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, PenTool, Target } from 'lucide-react';
 import { Section } from '@/components/ui';
+import dianaImage from '@/assets/images/tutores/diana.webp';
+import andresImage from '@/assets/images/tutores/andres.webp';
+import danielImage from '@/assets/images/tutores/daniel.webp';
+import leslieImage from '@/assets/images/tutores/leslie.webp';
+import oscarImage from '@/assets/images/tutores/oscar.webp';
+import cassandraImage from '@/assets/images/tutores/cass.webp';
+import yareliImage from '@/assets/images/tutores/yareli.webp';
+import miguelImage from '@/assets/images/tutores/miguel.webp';
+import adrianaImage from '@/assets/images/tutores/adriana.webp';
+import americaImage from '@/assets/images/tutores/ameica.webp';
+
+const tutors = [
+  {
+    id: 1,
+    name: 'Diana Yulissa Resendez Zepeda',
+    subject: 'Premedicina II',
+    icon: Target,
+    specialization: 'Licenciada en Enfermería',
+    description: 'Enfermera con experiencia en Hospital de la Paz y Hospital Materno Infantil. Especialista en cuidados COVID-19.',
+    image: dianaImage,
+  },
+  {
+    id: 2,
+    name: 'José Andrés Estrada Aguirre',
+    subject: 'Derecho e Historia',
+    icon: PenTool,
+    specialization: 'Lic. en Ciencias Políticas',
+    description: 'Licenciado en Administración Financiera con diplomados en PNL e Imagen Pública. Puntaje CENEVAL: 945.',
+    image: andresImage,
+  },
+  {
+    id: 3,
+    name: 'Daniel Armando Hernández Lemus',
+    subject: 'Probabilidad y Estadística',
+    icon: BookOpen,
+    specialization: 'Lic. en Planificación Agropecuaria UNAM',
+    description: 'Egresado Fintech Lab 2023 TEC. Analista de Inteligencia de Negocios en Grupo Elektra.',
+    image: danielImage,
+  },
+  {
+    id: 4,
+    name: 'Leslie Berenice Cisneros Vázquez',
+    subject: 'Literatura',
+    icon: PenTool,
+    specialization: 'Lic. en Educación Primaria',
+    description: 'Maestra en Educación y Doctorante en Gestión Educativa. Miembro del taller literario Artepalabra.',
+    image: leslieImage,
+  },
+  {
+    id: 5,
+    name: 'Oscar Geovanny Santillano García',
+    subject: 'Química',
+    icon: Target,
+    specialization: 'Químico Biotecnólogo UJED',
+    description: 'Subcampeón estatal en Olimpiadas del Conocimiento. Más de 10 años preparando estudiantes para EXANI.',
+    image: oscarImage,
+  },
+  {
+    id: 6,
+    name: 'Cassandra Nahomi Reyes González',
+    subject: 'Módulos Base',
+    icon: BookOpen,
+    specialization: 'Egresada ByCENED',
+    description: 'Licenciada en Administración Financiera. Primer lugar en Maratonista Nacional de Finanzas 2024.',
+    image: cassandraImage,
+  },
+  {
+    id: 7,
+    name: 'Yareli Romero Rojas',
+    subject: 'Matemáticas Financieras',
+    icon: Target,
+    specialization: 'Lic. en Finanzas BUAP',
+    description: 'MBA y Analista Financiera especializada en Planeación y Control. Certificación AMIB 2025.',
+    image: yareliImage,
+  },
+  {
+    id: 8,
+    name: 'Miguel Ángel Macareno',
+    subject: 'Cálculo Diferencial e Integral',
+    icon: Target,
+    specialization: 'Ing. Químico UNAM',
+    description: 'Docente en Matemáticas UNAM. Especialista en Cálculo y Ecuaciones Diferenciales.',
+    image: miguelImage,
+  },
+  {
+    id: 9,
+    name: 'Adriana Guadalupe Quiroz Reyes',
+    subject: 'Premedicina I y Biología',
+    icon: Target,
+    specialization: 'Dra. en Ciencias UANL',
+    description: 'Doctora en Biología Molecular e Ingeniería Genética. 11 artículos científicos publicados.',
+    image: adrianaImage,
+  },
+  {
+    id: 10,
+    name: 'América Guadalupe Soto García',
+    subject: 'Inglés',
+    icon: PenTool,
+    specialization: 'Lic. en Educación Primaria ByCENED',
+    description: 'Certificación TKT y Posgrado en eLearning Design en Canadá. 6 artículos de investigación educativa.',
+    image: americaImage,
+  },
+];
 
 const Tutors: React.FC = () => {
-  const tutors = [
-    {
-      id: 1,
-      name: 'Diana Yulissa Resendez Zepeda',
-      subject: 'Premedicina II',
-      icon: Target,
-      specialization: 'Licenciada en Enfermería',
-      description: 'Enfermera con experiencia en Hospital de la Paz y Hospital Materno Infantil. Especialista en cuidados COVID-19.',
-      image: '/src/assets/images/tutores/diana.webp',
-    },
-    {
-      id: 2,
-      name: 'José Andrés Estrada Aguirre',
-      subject: 'Derecho e Historia',
-      icon: PenTool,
-      specialization: 'Lic. en Ciencias Políticas',
-      description: 'Licenciado en Administración Financiera con diplomados en PNL e Imagen Pública. Puntaje CENEVAL: 945.',
-      image: '/src/assets/images/tutores/andres.webp',
-    },
-    {
-      id: 3,
-      name: 'Daniel Armando Hernández Lemus',
-      subject: 'Probabilidad y Estadística',
-      icon: BookOpen,
-      specialization: 'Lic. en Planificación Agropecuaria UNAM',
-      description: 'Egresado Fintech Lab 2023 TEC. Analista de Inteligencia de Negocios en Grupo Elektra.',
-      image: '/src/assets/images/tutores/daniel.webp',
-    },
-    {
-      id: 4,
-      name: 'Leslie Berenice Cisneros Vázquez',
-      subject: 'Literatura',
-      icon: PenTool,
-      specialization: 'Lic. en Educación Primaria',
-      description: 'Maestra en Educación y Doctorante en Gestión Educativa. Miembro del taller literario Artepalabra.',
-      image: '/src/assets/images/tutores/leslie.webp',
-    },
-    {
-      id: 5,
-      name: 'Oscar Geovanny Santillano García',
-      subject: 'Química',
-      icon: Target,
-      specialization: 'Químico Biotecnólogo UJED',
-      description: 'Subcampeón estatal en Olimpiadas del Conocimiento. Más de 10 años preparando estudiantes para EXANI.',
-      image: '/src/assets/images/tutores/oscar.webp',
-    },
-    {
-      id: 6,
-      name: 'Cassandra Nahomi Reyes González',
-      subject: 'Módulos Base',
-      icon: BookOpen,
-      specialization: 'Egresada ByCENED',
-      description: 'Licenciada en Administración Financiera. Primer lugar en Maratonista Nacional de Finanzas 2024.',
-      image: '/src/assets/images/tutores/cass.webp',
-    },
-    {
-      id: 7,
-      name: 'Yareli Romero Rojas',
-      subject: 'Matemáticas Financieras',
-      icon: Target,
-      specialization: 'Lic. en Finanzas BUAP',
-      description: 'MBA y Analista Financiera especializada en Planeación y Control. Certificación AMIB 2025.',
-      image: '/src/assets/images/tutores/yareli.webp',
-    },
-    {
-      id: 8,
-      name: 'Miguel Ángel Macareno',
-      subject: 'Cálculo Diferencial e Integral',
-      icon: Target,
-      specialization: 'Ing. Químico UNAM',
-      description: 'Docente en Matemáticas UNAM. Especialista en Cálculo y Ecuaciones Diferenciales.',
-      image: '/src/assets/images/tutores/miguel.webp',
-    },
-    {
-      id: 9,
-      name: 'Adriana Guadalupe Quiroz Reyes',
-      subject: 'Premedicina I y Biología',
-      icon: Target,
-      specialization: 'Dra. en Ciencias UANL',
-      description: 'Doctora en Biología Molecular e Ingeniería Genética. 11 artículos científicos publicados.',
-      image: '/src/assets/images/tutores/adriana.webp',
-    },
-    {
-      id: 10,
-      name: 'América Guadalupe Soto García',
-      subject: 'Inglés',
-      icon: PenTool,
-      specialization: 'Lic. en Educación Primaria ByCENED',
-      description: 'Certificación TKT y Posgrado en eLearning Design en Canadá. 6 artículos de investigación educativa.',
-      image: '/src/assets/images/tutores/ameica.webp',
-    },
-  ];
-
   return (
     <Section 
       id="tutors" 
@@ -177,6 +187,8 @@ const Tutors: React.FC = () => {
                 <img 
                   src={tutor.image} 
                   alt={tutor.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain object-center p-2 sm:p-3 transition-transform duration-500 sm:group-hover:scale-105"
                   style={{
                     WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 80%, transparent 100%)',

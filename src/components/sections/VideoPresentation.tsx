@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Play, Users, Award, Clock } from 'lucide-react';
 import { Section } from '@/components/ui';
+import presentationVideo from '@/assets/video/video_presentacion.mp4';
 
 const VideoPresentation: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -41,10 +42,10 @@ const VideoPresentation: React.FC = () => {
               className="w-full h-auto aspect-video object-cover"
               controls
               muted
-              poster="/src/assets/images/video-thumbnail.jpg" // Optional thumbnail
-              preload="metadata"
+              playsInline
+              preload="none"
             >
-              <source src="/src/assets/video/video_presentacion.mp4" type="video/mp4" />
+              <source src={presentationVideo} type="video/mp4" />
               Tu navegador no soporta videos HTML5.
             </video>
             
