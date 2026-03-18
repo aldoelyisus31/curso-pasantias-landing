@@ -9,7 +9,6 @@ const Universities: React.FC = () => {
       id: 1,
       name: 'NOROESTE',
       states: 'Baja California, Baja California Sur, Chihuahua, Sinaloa y Sonora',
-      featuredUniversities: ['Universidad Autónoma de Chihuahua', 'Universidad Autónoma de Sinaloa', 'Universidad de Sonora'],
       totalUniversities: 15,
       universities: [
         'Escuela Normal Rural Ricardo Flores Magón', 'Escuela Normal Superior', 'Escuela Normal Superior del Estado de Baja California Sur',
@@ -24,8 +23,7 @@ const Universities: React.FC = () => {
       id: 2,
       name: 'NORESTE',
       states: 'Coahuila, Durango, Nuevo León, San Luis Potosí y Tamaulipas',
-      featuredUniversities: ['UANL', 'Universidad Autónoma de Tamaulipas', 'Universidad Juárez del Estado de Durango'],
-      totalUniversities: 52,
+      totalUniversities: 49,
       universities: [
         'Universidad Autónoma de Nuevo León', 'Universidad Autónoma de Tamaulipas', 'Universidad Juárez del Estado de Durango',
         'Universidad Autónoma Agraria Antonio Narro', 'Benemérita Escuela Federalizada de Tamaulipas', 'Benemérita Escuela Normal de Coahuila',
@@ -38,7 +36,6 @@ const Universities: React.FC = () => {
       id: 3,
       name: 'CENTRO',
       states: 'Estado de México, Guerrero, Hidalgo, Morelos, Puebla y Tlaxcala',
-      featuredUniversities: ['Universidad Autónoma del Estado de México', 'Universidad Autónoma de Guerrero', 'Universidad Autónoma de Tlaxcala'],
       totalUniversities: 45,
       universities: [
         'Universidad Autónoma del Estado de México', 'Universidad Autónoma de Guerrero', 'Universidad Autónoma de Tlaxcala',
@@ -52,7 +49,6 @@ const Universities: React.FC = () => {
       id: 4,
       name: 'BAJÍO',
       states: 'Aguascalientes, Colima, Guanajuato, Jalisco, Michoacán, Nayarit, Querétaro y Zacatecas',
-      featuredUniversities: ['Universidad Autónoma de Nayarit', 'Universidad Autónoma de Zacatecas', 'Universidad de Colima'],
       totalUniversities: 31,
       universities: [
         'Universidad Autónoma de Aguascalientes', 'Universidad Autónoma de Nayarit', 'Universidad Autónoma de Zacatecas',
@@ -66,7 +62,6 @@ const Universities: React.FC = () => {
       id: 5,
       name: 'SURESTE',
       states: 'Campeche, Chiapas, Oaxaca, Quintana Roo, Tabasco, Veracruz y Yucatán',
-      featuredUniversities: ['Universidad Juárez Autónoma de Tabasco', 'Universidad Autónoma de Yucatán', 'Universidad Autónoma Benito Juárez de Oaxaca'],
       totalUniversities: 60,
       universities: [
         'Universidad Juárez Autónoma de Tabasco', 'Universidad Autónoma de Yucatán', 'Universidad Autónoma de Campeche',
@@ -116,8 +111,7 @@ const Universities: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            El examen CENEVAL EXANI-II es el filtro principal para las instituciones públicas más 
-            prestigiosas de México. Cubrimos <strong>{totalUniversities}+ universidades</strong> en todo el país.
+            El examen CENEVAL EXANI-II es utilizado por cerca de 200 universidades en México como parte de su proceso de admisión. Nuestro curso prepara a los estudiantes para enfrentar este examen con las estrategias y prácticas necesarias.
           </motion.p>
 
           {/* Stats */}
@@ -143,15 +137,31 @@ const Universities: React.FC = () => {
           {regions.map((region, index) => (
             <motion.div
               key={region.id}
-              className="group perspective-1000"
+              className="group"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="relative w-full h-80 transform-style-preserve-3d group-hover:rotate-y-180 transition-transform duration-700">
+              <div 
+                className="group relative w-full h-80"
+                style={{ perspective: '1000px' }}
+              >
+                <motion.div
+                  className="relative w-full h-full"
+                  whileHover={{ rotateY: 180 }}
+                  transition={{ duration: 0.6 }}
+                  style={{ transformStyle: 'preserve-3d' }}
+                >
                 {/* Front Side */}
-                <div className={`absolute inset-0 w-full h-full backface-hidden bg-gradient-to-br ${region.color} rounded-2xl shadow-lg p-6 text-white overflow-hidden`}>
+                <div
+                  className={`absolute inset-0 w-full h-full bg-gradient-to-br ${region.color} rounded-2xl shadow-lg p-6 text-white overflow-hidden`}
+                  style={{ 
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                    transformStyle: 'preserve-3d'
+                  }}
+                >
                   {/* Map Background Pattern */}
                   <div className="absolute inset-0 opacity-8">
                     {/* Region-specific state outlines */}
@@ -296,7 +306,15 @@ const Universities: React.FC = () => {
                 </div>
 
                 {/* Back Side */}
-                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
+                <div
+                  className="absolute inset-0 w-full h-full bg-white rounded-2xl shadow-lg p-6 border border-gray-200"
+                  style={{ 
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                    transform: 'rotateY(180deg)',
+                    transformStyle: 'preserve-3d'
+                  }}
+                >
                   {/* Header */}
                   <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-200">
                     <h4 className="font-bold text-gray-900">{region.name}</h4>
@@ -308,11 +326,7 @@ const Universities: React.FC = () => {
                     {region.universities.map((university, idx) => (
                       <div 
                         key={idx}
-                        className={`text-xs p-2 rounded-lg transition-colors duration-200 ${
-                          region.featuredUniversities.some(featured => university.includes(featured.split(' ').slice(-2).join(' ')))
-                            ? 'bg-rose-50 text-rose-700 font-medium border border-rose-200'
-                            : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
-                        }`}
+                        className="text-xs p-2 rounded-lg transition-colors duration-200 bg-gray-50 text-gray-700 hover:bg-gray-100"
                       >
                         • {university}
                       </div>
@@ -326,6 +340,7 @@ const Universities: React.FC = () => {
                     </div>
                   </div>
                 </div>
+                </motion.div>
               </div>
             </motion.div>
           ))}

@@ -36,7 +36,7 @@ const About: React.FC = () => {
     'Simulacros reales con retroalimentación personalizada',
     'Temario 100% actualizado según las últimas convocatorias',
     'Técnicas de manejo del tiempo y reducción de estrés',
-    'Seguimiento individual del progreso en cada módulo',
+    'Seguimiento individual y grupal durante todo el proceso',
     'Acceso a banco de preguntas exclusivo con más de 2000 ejercicios',
   ];
 
