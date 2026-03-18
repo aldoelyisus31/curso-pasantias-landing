@@ -60,7 +60,7 @@ const Header: React.FC = () => {
                   isScrolled ? 'text-gray-600' : 'text-white/85'
                 )}
               >
-                Pasas tu, pasamos todos.
+                Pasas tú, Pasamos todos.
               </span>
             </div>
           </motion.div>

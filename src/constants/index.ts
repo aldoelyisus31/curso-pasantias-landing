@@ -29,15 +29,15 @@ export const NAVIGATION_ITEMS: NavItem[] = [
 export const FEATURES: Feature[] = [
   {
     id: 'hours',
-    title: '60 Horas de Preparación Intensiva',
-    description: 'Módulos estructurados: Matemáticas, Español, Ciencias y área específica según tu carrera objetivo.',
+    title: '50 horas de Preparación Intensiva',
+    description: 'Módulos estructurados: Modúlos Base, Inglés y Módulos específicos de acuerdo la carrera objetivo.',
     icon: Clock,
     href: '#hours',
   },
   {
     id: 'live',
     title: 'Clases 100% en Vivo + Grabadas',
-    description: 'Participa en tiempo real con profesores especializados y accede a todas las grabaciones 24/7.',
+    description: 'Toma las clases en tiempo real con profesores especializados y accede a las grabaciones 24/7.',
     icon: Video,
     href: '#live',
   },
@@ -51,21 +51,21 @@ export const FEATURES: Feature[] = [
   {
     id: 'syllabus',
     title: 'Temario 100% Oficial CENEVAL',
-    description: 'Cubrimos todos los temas del temario oficial actualizado para mayoría de carreras universitarias.',
+    description: 'Cubrimos todos los temas del temario oficial actualizado del EXANI II de CENEVAL.',
     icon: BookOpen,
     href: '#syllabus',
   },
   {
     id: 'payment',
     title: 'Planes de Pago Flexibles',
-    description: 'Desde $2,500 pesos. Opciones de pago en mensualidades sin intereses para que estudies sin preocupaciones.',
+    description: 'Ofrecemos opciones de pago para que puedas aseguraar tu inscripción y liquidar el monto total antes del inicio del curso.',
     icon: CreditCard,
     href: '#payment',
   },
   {
     id: 'practical',
     title: 'Método Comprobado',
-    description: '+2,500 estudiantes ya fueron admitidos en UNAM, IPN, UAM usando nuestras técnicas y estrategias.',
+    description: 'Exalumnos de nuestro curso han sido admitidos en distintas universidades públicas del país en más de 7 estados.',
     icon: Target,
     href: '#practical',
   },

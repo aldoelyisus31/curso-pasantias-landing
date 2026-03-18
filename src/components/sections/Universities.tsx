@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, MapPin } from 'lucide-react';
+import { GraduationCap, MapPin, RotateCcw } from 'lucide-react';
 import { Section } from '@/components/ui';
 
 const Universities: React.FC = () => {
+  const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
+
+  const toggleCard = (id: number) => {
+    setFlippedCards(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  };
+
   const regions = [
     {
       id: 1,
       name: 'NOROESTE',
       states: 'Baja California, Baja California Sur, Chihuahua, Sinaloa y Sonora',
-      featuredUniversities: ['Universidad Autónoma de Chihuahua', 'Universidad Autónoma de Sinaloa', 'Universidad de Sonora'],
       totalUniversities: 15,
       universities: [
         'Escuela Normal Rural Ricardo Flores Magón', 'Escuela Normal Superior', 'Escuela Normal Superior del Estado de Baja California Sur',
@@ -24,8 +37,7 @@ const Universities: React.FC = () => {
       id: 2,
       name: 'NORESTE',
       states: 'Coahuila, Durango, Nuevo León, San Luis Potosí y Tamaulipas',
-      featuredUniversities: ['UANL', 'Universidad Autónoma de Tamaulipas', 'Universidad Juárez del Estado de Durango'],
-      totalUniversities: 52,
+      totalUniversities: 49,
       universities: [
         'Universidad Autónoma de Nuevo León', 'Universidad Autónoma de Tamaulipas', 'Universidad Juárez del Estado de Durango',
         'Universidad Autónoma Agraria Antonio Narro', 'Benemérita Escuela Federalizada de Tamaulipas', 'Benemérita Escuela Normal de Coahuila',
@@ -38,7 +50,6 @@ const Universities: React.FC = () => {
       id: 3,
       name: 'CENTRO',
       states: 'Estado de México, Guerrero, Hidalgo, Morelos, Puebla y Tlaxcala',
-      featuredUniversities: ['Universidad Autónoma del Estado de México', 'Universidad Autónoma de Guerrero', 'Universidad Autónoma de Tlaxcala'],
       totalUniversities: 45,
       universities: [
         'Universidad Autónoma del Estado de México', 'Universidad Autónoma de Guerrero', 'Universidad Autónoma de Tlaxcala',
@@ -52,7 +63,6 @@ const Universities: React.FC = () => {
       id: 4,
       name: 'BAJÍO',
       states: 'Aguascalientes, Colima, Guanajuato, Jalisco, Michoacán, Nayarit, Querétaro y Zacatecas',
-      featuredUniversities: ['Universidad Autónoma de Nayarit', 'Universidad Autónoma de Zacatecas', 'Universidad de Colima'],
       totalUniversities: 31,
       universities: [
         'Universidad Autónoma de Aguascalientes', 'Universidad Autónoma de Nayarit', 'Universidad Autónoma de Zacatecas',
@@ -66,7 +76,6 @@ const Universities: React.FC = () => {
       id: 5,
       name: 'SURESTE',
       states: 'Campeche, Chiapas, Oaxaca, Quintana Roo, Tabasco, Veracruz y Yucatán',
-      featuredUniversities: ['Universidad Juárez Autónoma de Tabasco', 'Universidad Autónoma de Yucatán', 'Universidad Autónoma Benito Juárez de Oaxaca'],
       totalUniversities: 60,
       universities: [
         'Universidad Juárez Autónoma de Tabasco', 'Universidad Autónoma de Yucatán', 'Universidad Autónoma de Campeche',
@@ -116,8 +125,7 @@ const Universities: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            El examen CENEVAL EXANI-II es el filtro principal para las instituciones públicas más 
-            prestigiosas de México. Cubrimos <strong>{totalUniversities}+ universidades</strong> en todo el país.
+            El examen CENEVAL EXANI-II es utilizado por cerca de 200 universidades en México como parte de su proceso de admisión. Nuestro curso prepara a los estudiantes para enfrentar este examen con las estrategias y prácticas necesarias.
           </motion.p>
 
           {/* Stats */}
@@ -143,15 +151,42 @@ const Universities: React.FC = () => {
           {regions.map((region, index) => (
             <motion.div
               key={region.id}
-              className="group perspective-1000"
+              className="group"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="relative w-full h-80 transform-style-preserve-3d group-hover:rotate-y-180 transition-transform duration-700">
+              <div
+                className="relative w-full h-80 cursor-pointer"
+                style={{ perspective: '1000px' }}
+                onClick={() => toggleCard(region.id)}
+                role="button"
+                tabIndex={0}
+                aria-label={`Ver universidades de la región ${region.name}`}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleCard(region.id); } }}
+              >
+                <motion.div
+                  className="relative w-full h-full"
+                  animate={{ rotateY: flippedCards.has(region.id) ? 180 : 0 }}
+                  transition={{ duration: 0.6 }}
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    WebkitTransformStyle: 'preserve-3d',
+                  }}
+                >
                 {/* Front Side */}
-                <div className={`absolute inset-0 w-full h-full backface-hidden bg-gradient-to-br ${region.color} rounded-2xl shadow-lg p-6 text-white overflow-hidden`}>
+                <div
+                  className={`absolute inset-0 w-full h-full bg-gradient-to-br ${region.color} rounded-2xl shadow-lg p-6 text-white overflow-hidden`}
+                  style={{ 
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                    transform: 'rotateY(0deg)',
+                    WebkitTransform: 'rotateY(0deg)',
+                    transformStyle: 'preserve-3d',
+                    WebkitTransformStyle: 'preserve-3d',
+                  }}
+                >
                   {/* Map Background Pattern */}
                   <div className="absolute inset-0 opacity-8">
                     {/* Region-specific state outlines */}
@@ -292,11 +327,27 @@ const Universities: React.FC = () => {
                   <h3 className="text-2xl font-bold mb-2 relative z-10">{region.name}</h3>
                   
                   {/* States */}
-                  <p className="text-sm opacity-90 mb-6 leading-relaxed relative z-10">{region.states}</p>
+                  <p className="text-sm opacity-90 mb-4 leading-relaxed relative z-10">{region.states}</p>
+
+                  {/* Tap hint */}
+                  <div className="absolute bottom-4 right-4 flex items-center space-x-1 text-white/70 text-xs z-10">
+                    <RotateCcw className="h-3 w-3" />
+                    <span>Toca para ver</span>
+                  </div>
                 </div>
 
                 {/* Back Side */}
-                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
+                <div
+                  className="absolute inset-0 w-full h-full bg-white rounded-2xl shadow-lg p-6 border border-gray-200"
+                  style={{ 
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                    transform: 'rotateY(180deg)',
+                    WebkitTransform: 'rotateY(180deg)',
+                    transformStyle: 'preserve-3d',
+                    WebkitTransformStyle: 'preserve-3d',
+                  }}
+                >
                   {/* Header */}
                   <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-200">
                     <h4 className="font-bold text-gray-900">{region.name}</h4>
@@ -308,11 +359,7 @@ const Universities: React.FC = () => {
                     {region.universities.map((university, idx) => (
                       <div 
                         key={idx}
-                        className={`text-xs p-2 rounded-lg transition-colors duration-200 ${
-                          region.featuredUniversities.some(featured => university.includes(featured.split(' ').slice(-2).join(' ')))
-                            ? 'bg-rose-50 text-rose-700 font-medium border border-rose-200'
-                            : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
-                        }`}
+                        className="text-xs p-2 rounded-lg transition-colors duration-200 bg-gray-50 text-gray-700 hover:bg-gray-100"
                       >
                         • {university}
                       </div>
@@ -326,6 +373,7 @@ const Universities: React.FC = () => {
                     </div>
                   </div>
                 </div>
+                </motion.div>
               </div>
             </motion.div>
           ))}

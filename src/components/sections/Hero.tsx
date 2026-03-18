@@ -25,7 +25,7 @@ export default function Hero() {
           
           <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6">
             <span className="block text-rose-500 mb-2">Pasas tú,</span>
-            pasamos todos.
+            Pasamos todos.
           </h1>
           
           <p className="mt-4 text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed">

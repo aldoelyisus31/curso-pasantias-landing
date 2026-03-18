@@ -237,12 +237,12 @@ const Tutors: React.FC = () => {
                 <div className="absolute -top-3 left-6 w-4 h-4 bg-gradient-to-r from-rose-500 to-slate-600 rounded-full shadow-lg transform rotate-45 opacity-0 group-hover:opacity-100 transition-all duration-300 delay-100" />
                 
                 {/* Name */}
-                <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-white transition-colors duration-300">
+                <h3 className="text-lg font-bold text-gray-900 group-hover:text-white mb-3 transition-colors duration-300">
                   {tutor.name}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-600 text-sm leading-relaxed mb-4 group-hover:text-white transition-colors duration-300">
+                <p className="text-gray-600 group-hover:text-gray-100 text-sm leading-relaxed mb-4 transition-colors duration-300">
                   {tutor.description}
                 </p>
 
