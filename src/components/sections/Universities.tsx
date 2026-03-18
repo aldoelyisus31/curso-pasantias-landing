@@ -81,8 +81,6 @@ const Universities: React.FC = () => {
     }
   ];
 
-  const totalUniversities = regions.reduce((sum, region) => sum + region.totalUniversities, 0);
-
   return (
     <Section id="universities" background="white">
       <div className="space-y-16">
@@ -116,8 +114,7 @@ const Universities: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            El examen CENEVAL EXANI-II es el filtro principal para las instituciones públicas más 
-            prestigiosas de México. Cubrimos <strong>{totalUniversities}+ universidades</strong> en todo el país.
+            El examen CENEVAL EXANI-II es utilizado por cerca de 200 universidades en México como parte de su proceso de admisión. Nuestro curso prepara a los estudiantes para enfrentar este examen con las estrategias y prácticas necesarias.
           </motion.p>
 
           {/* Stats */}
@@ -132,7 +129,7 @@ const Universities: React.FC = () => {
               <GraduationCap className="h-6 w-6 text-white" />
             </div>
             <div>
-              <div className="text-3xl font-bold text-rose-600">+{totalUniversities}</div>
+              <div className="text-3xl font-bold text-rose-600">+200</div>
               <div className="text-gray-600 font-medium">Universidades que aplican CENEVAL</div>
             </div>
           </motion.div>
@@ -149,9 +146,9 @@ const Universities: React.FC = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="relative w-full h-80 transform-style-preserve-3d group-hover:rotate-y-180 transition-transform duration-700">
+              <div className="relative w-full h-80">
                 {/* Front Side */}
-                <div className={`absolute inset-0 w-full h-full backface-hidden bg-gradient-to-br ${region.color} rounded-2xl shadow-lg p-6 text-white overflow-hidden`}>
+                <div className={`absolute inset-0 w-full h-full bg-gradient-to-br ${region.color} rounded-2xl shadow-lg p-6 text-white overflow-hidden transition-all duration-700 group-hover:opacity-0 group-hover:invisible`}>
                   {/* Map Background Pattern */}
                   <div className="absolute inset-0 opacity-8">
                     {/* Region-specific state outlines */}
@@ -296,7 +293,7 @@ const Universities: React.FC = () => {
                 </div>
 
                 {/* Back Side */}
-                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
+                <div className="absolute inset-0 w-full h-full bg-white rounded-2xl shadow-lg p-6 border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-700">
                   {/* Header */}
                   <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-200">
                     <h4 className="font-bold text-gray-900">{region.name}</h4>
@@ -308,11 +305,7 @@ const Universities: React.FC = () => {
                     {region.universities.map((university, idx) => (
                       <div 
                         key={idx}
-                        className={`text-xs p-2 rounded-lg transition-colors duration-200 ${
-                          region.featuredUniversities.some(featured => university.includes(featured.split(' ').slice(-2).join(' ')))
-                            ? 'bg-rose-50 text-rose-700 font-medium border border-rose-200'
-                            : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
-                        }`}
+                        className="text-xs p-2 rounded-lg bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors duration-200"
                       >
                         • {university}
                       </div>

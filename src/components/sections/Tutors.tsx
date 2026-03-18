@@ -157,7 +157,7 @@ const Tutors: React.FC = () => {
 
           {/* Title */}
           <motion.h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -172,15 +172,15 @@ const Tutors: React.FC = () => {
           {tutors.map((tutor, index) => (
             <motion.div
               key={tutor.id}
-              className="relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer border border-gray-100 hover:border-rose-200"
+              className="relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group cursor-pointer border border-gray-100 hover:border-orange-200"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ y: -8 }}
+              whileHover={{ y: -12, scale: 1.02 }}
             >
               {/* Decorative gradient border */}
-              <div className="absolute inset-0 bg-gradient-to-br from-rose-500 to-slate-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm" />
+              <div className="absolute inset-0 bg-gradient-to-br from-rose-500 to-slate-600 rounded-2xl opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm" />
               
               {/* Image Section */}
               <div className="relative h-[300px] overflow-hidden bg-slate-100">
@@ -215,17 +215,17 @@ const Tutors: React.FC = () => {
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
-                {/* Subject badge - floating */}
-                <div className="absolute top-4 left-4 flex items-center space-x-2 bg-black/80 backdrop-blur-sm rounded-full px-3 py-2 shadow-lg transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <div className="w-5 h-5 bg-gradient-to-r from-rose-500 to-slate-600 rounded-full flex items-center justify-center">
+                {/* Subject badge - SIEMPRE VISIBLE EN MÓVIL */}
+                <div className="absolute top-4 left-4 flex items-center space-x-2 bg-white/95 backdrop-blur-sm rounded-full px-3 py-2 shadow-lg lg:opacity-0 lg:translate-y-2 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 transition-all duration-500">
+                  <div className="w-6 h-6 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center">
                     <tutor.icon className="h-3 w-3 text-white" />
                   </div>
-                  <span className="text-white font-semibold text-xs">{tutor.subject}</span>
+                  <span className="text-gray-800 font-semibold text-xs">{tutor.subject}</span>
                 </div>
 
-                {/* Specialization badge - floating */}
-                <div className="absolute bottom-4 left-4 right-4 bg-black/80 backdrop-blur-sm rounded-xl p-3 shadow-lg transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75">
-                  <p className="text-white font-bold text-sm text-center">
+                {/* Specialization badge - SIEMPRE VISIBLE EN MÓVIL */}
+                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-lg lg:opacity-0 lg:translate-y-4 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 transition-all duration-500 delay-100">
+                  <p className="text-orange-600 font-bold text-sm text-center">
                     {tutor.specialization}
                   </p>
                 </div>
@@ -237,12 +237,12 @@ const Tutors: React.FC = () => {
                 <div className="absolute -top-3 left-6 w-4 h-4 bg-gradient-to-r from-rose-500 to-slate-600 rounded-full shadow-lg transform rotate-45 opacity-0 group-hover:opacity-100 transition-all duration-300 delay-100" />
                 
                 {/* Name */}
-                <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-white transition-colors duration-300">
+                <h3 className="text-lg font-bold text-gray-900 mb-3 lg:group-hover:text-white transition-colors duration-300">
                   {tutor.name}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-600 text-sm leading-relaxed mb-4 group-hover:text-white transition-colors duration-300">
+                <p className="text-gray-600 text-sm leading-relaxed mb-4 lg:group-hover:text-white transition-colors duration-300">
                   {tutor.description}
                 </p>
 

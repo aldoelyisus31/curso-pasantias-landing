@@ -66,7 +66,7 @@ const VideoPresentation: React.FC = () => {
               <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-2">
                 <Users className="h-6 w-6 text-rose-600" />
               </div>
-              <p className="text-sm text-gray-600 font-medium">500+ Estudiantes</p>
+              <p className="text-sm text-gray-600 font-medium">6+ años de experiencia</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-2">
@@ -78,7 +78,7 @@ const VideoPresentation: React.FC = () => {
               <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-2">
                 <Clock className="h-6 w-6 text-rose-600" />
               </div>
-              <p className="text-sm text-gray-600 font-medium">6 Semanas</p>
+              <p className="text-sm text-gray-600 font-medium">50 horas de preparación</p>
             </div>
           </motion.div>
         </motion.div>
@@ -116,7 +116,7 @@ const VideoPresentation: React.FC = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-gray-900 mb-1">Metodología Comprobada</h4>
-                <p className="text-gray-600 text-sm">Sistema estructurado con resultados exitosos</p>
+                <p className="text-gray-600 text-sm">Sistema estructurado con resultados exitosos.</p>
               </div>
             </div>
             
@@ -126,7 +126,7 @@ const VideoPresentation: React.FC = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-gray-900 mb-1">Tutores Especialistas</h4>
-                <p className="text-gray-600 text-sm">Profesionales con experiencia académica certificada</p>
+                <p className="text-gray-600 text-sm">Profesionales con experiencia académica.</p>
               </div>
             </div>
             
@@ -136,7 +136,7 @@ const VideoPresentation: React.FC = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-gray-900 mb-1">Acompañamiento Personalizado</h4>
-                <p className="text-gray-600 text-sm">Seguimiento individual durante todo el proceso</p>
+                <p className="text-gray-600 text-sm">Seguimiento individual y grupal durante todo el proceso</p>
               </div>
             </div>
           </div>
