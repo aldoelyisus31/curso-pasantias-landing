@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, MapPin } from 'lucide-react';
+import { GraduationCap, MapPin, RotateCcw } from 'lucide-react';
 import { Section } from '@/components/ui';
 
 const Universities: React.FC = () => {
+  const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
+
+  const toggleCard = (id: number) => {
+    setFlippedCards(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  };
+
   const regions = [
     {
       id: 1,
@@ -143,15 +157,23 @@ const Universities: React.FC = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div 
-                className="group relative w-full h-80"
+              <div
+                className="relative w-full h-80 cursor-pointer"
                 style={{ perspective: '1000px' }}
+                onClick={() => toggleCard(region.id)}
+                role="button"
+                tabIndex={0}
+                aria-label={`Ver universidades de la región ${region.name}`}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleCard(region.id); } }}
               >
                 <motion.div
                   className="relative w-full h-full"
-                  whileHover={{ rotateY: 180 }}
+                  animate={{ rotateY: flippedCards.has(region.id) ? 180 : 0 }}
                   transition={{ duration: 0.6 }}
-                  style={{ transformStyle: 'preserve-3d' }}
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    WebkitTransformStyle: 'preserve-3d',
+                  }}
                 >
                 {/* Front Side */}
                 <div
@@ -159,7 +181,10 @@ const Universities: React.FC = () => {
                   style={{ 
                     backfaceVisibility: 'hidden',
                     WebkitBackfaceVisibility: 'hidden',
-                    transformStyle: 'preserve-3d'
+                    transform: 'rotateY(0deg)',
+                    WebkitTransform: 'rotateY(0deg)',
+                    transformStyle: 'preserve-3d',
+                    WebkitTransformStyle: 'preserve-3d',
                   }}
                 >
                   {/* Map Background Pattern */}
@@ -302,7 +327,13 @@ const Universities: React.FC = () => {
                   <h3 className="text-2xl font-bold mb-2 relative z-10">{region.name}</h3>
                   
                   {/* States */}
-                  <p className="text-sm opacity-90 mb-6 leading-relaxed relative z-10">{region.states}</p>
+                  <p className="text-sm opacity-90 mb-4 leading-relaxed relative z-10">{region.states}</p>
+
+                  {/* Tap hint */}
+                  <div className="absolute bottom-4 right-4 flex items-center space-x-1 text-white/70 text-xs z-10">
+                    <RotateCcw className="h-3 w-3" />
+                    <span>Toca para ver</span>
+                  </div>
                 </div>
 
                 {/* Back Side */}
@@ -312,7 +343,9 @@ const Universities: React.FC = () => {
                     backfaceVisibility: 'hidden',
                     WebkitBackfaceVisibility: 'hidden',
                     transform: 'rotateY(180deg)',
-                    transformStyle: 'preserve-3d'
+                    WebkitTransform: 'rotateY(180deg)',
+                    transformStyle: 'preserve-3d',
+                    WebkitTransformStyle: 'preserve-3d',
                   }}
                 >
                   {/* Header */}
