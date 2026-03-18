@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, MapPin } from 'lucide-react';
 import { Section } from '@/components/ui';
 
 const Universities: React.FC = () => {
+  const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
+
+  const toggleCard = (id: number) => {
+    setFlippedCards(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  };
   const regions = [
     {
       id: 1,
@@ -143,13 +156,18 @@ const Universities: React.FC = () => {
           {regions.map((region, index) => (
             <motion.div
               key={region.id}
-              className="group perspective-1000"
+              className="perspective-1000 cursor-pointer"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
+              onClick={() => toggleCard(region.id)}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleCard(region.id); } }}
+              tabIndex={0}
+              role="button"
+              aria-pressed={flippedCards.has(region.id)}
             >
-              <div className="relative w-full h-80 transform-style-preserve-3d group-hover:rotate-y-180 transition-transform duration-700">
+              <div className={`relative w-full h-80 transform-style-preserve-3d transition-transform duration-700 ${flippedCards.has(region.id) ? 'rotate-y-180' : ''}`}>
                 {/* Front Side */}
                 <div className={`absolute inset-0 w-full h-full backface-hidden bg-gradient-to-br ${region.color} rounded-2xl shadow-lg p-6 text-white overflow-hidden`}>
                   {/* Map Background Pattern */}
@@ -292,7 +310,14 @@ const Universities: React.FC = () => {
                   <h3 className="text-2xl font-bold mb-2 relative z-10">{region.name}</h3>
                   
                   {/* States */}
-                  <p className="text-sm opacity-90 mb-6 leading-relaxed relative z-10">{region.states}</p>
+                  <p className="text-sm opacity-90 mb-4 leading-relaxed relative z-10">{region.states}</p>
+
+                  {/* Tap hint */}
+                  <div className="absolute bottom-4 left-0 right-0 flex justify-center relative z-10">
+                    <span className="text-xs opacity-75 border border-white/40 rounded-full px-3 py-1">
+                      Toca para ver universidades
+                    </span>
+                  </div>
                 </div>
 
                 {/* Back Side */}
