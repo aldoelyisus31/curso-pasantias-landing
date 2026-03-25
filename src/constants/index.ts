@@ -23,6 +23,7 @@ export const NAVIGATION_ITEMS: NavItem[] = [
   { label: '¿Por qué nosotros?', href: '#features' },
   { label: 'Universidades', href: '#universities' },
   { label: 'Profesores', href: '#tutors' },
+  { label: 'Testimonios', href: '#testimonials' },
   { label: 'FAQ', href: '#faq' },
 ];
 

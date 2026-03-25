@@ -20,7 +20,7 @@ const tutors = [
     subject: 'Premedicina II',
     icon: Target,
     specialization: 'Licenciada en Enfermería',
-    description: 'Enfermera con experiencia en Hospital de la Paz y Hospital Materno Infantil. Especialista en cuidados COVID-19.',
+    description: 'Enfermera con experiencia en Hospital de la Paz y Hospital Materno Infantil. Enfermera brigadista SARS-CoV-2.',
     image: dianaImage,
   },
   {
@@ -29,7 +29,7 @@ const tutors = [
     subject: 'Derecho e Historia',
     icon: PenTool,
     specialization: 'Lic. en Ciencias Políticas',
-    description: 'Licenciado en Administración Financiera con diplomados en PNL e Imagen Pública. Puntaje CENEVAL: 945.',
+    description: 'Licenciado en Ciencias Políticas. Certificación en Consultoría Política. Diplomados en PNL e Imagen Pública.',
     image: andresImage,
   },
   {
@@ -37,7 +37,7 @@ const tutors = [
     name: 'Daniel Armando Hernández Lemus',
     subject: 'Probabilidad y Estadística',
     icon: BookOpen,
-    specialization: 'Lic. en Planificación Agropecuaria UNAM',
+    specialization: 'Lic. en Planificación para el Desarrollo Agropecuario UNAM',
     description: 'Egresado Fintech Lab 2023 TEC. Analista de Inteligencia de Negocios en Grupo Elektra.',
     image: danielImage,
   },
@@ -65,7 +65,7 @@ const tutors = [
     subject: 'Módulos Base',
     icon: BookOpen,
     specialization: 'Egresada ByCENED',
-    description: 'Licenciada en Administración Financiera. Primer lugar en Maratonista Nacional de Finanzas 2024.',
+    description: 'Lic. en Administración Financiera. Primer lugar en Maratonista Nacional de Finanzas 2024.',
     image: cassandraImage,
   },
   {

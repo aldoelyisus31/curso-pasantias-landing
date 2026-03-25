@@ -14,36 +14,48 @@ const VideoPresentation: React.FC = () => {
       return;
     }
 
-    if (isInView) {
+    // En móvil, no intentamos autoplay para evitar problemas con el audio
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isInView && !isMobile) {
+      // Solo autoplay en desktop, y con muted para cumplir políticas del navegador
+      videoRef.current.muted = true;
       void videoRef.current.play().catch(() => {
         // Autoplay can still be blocked by user/browser settings.
       });
       return;
     }
 
-    videoRef.current.pause();
+    if (!isInView && !isMobile) {
+      videoRef.current.pause();
+    }
   }, [isInView]);
 
   return (
-    <Section id="video-presentation" background="gray">
-      <div ref={sectionRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <Section id="video-presentation" background="gray" className="overflow-hidden">
+      <div ref={sectionRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center overflow-hidden">
         {/* Video Side */}
         <motion.div
-          className="relative"
+          className="relative touch-none"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           {/* Video Container */}
-          <div className="relative bg-slate-900 rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative bg-slate-900 rounded-2xl overflow-hidden shadow-2xl touch-none">
             <video
               ref={videoRef}
-              className="w-full h-auto aspect-video object-cover"
+              className="w-full h-auto aspect-video object-cover touch-none select-none"
               controls
-              muted
               playsInline
-              preload="none"
+              preload="metadata"
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+                display: 'block',
+                touchAction: 'manipulation'
+              }}
             >
               <source src={presentationVideo} type="video/mp4" />
               Tu navegador no soporta videos HTML5.

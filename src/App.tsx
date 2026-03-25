@@ -9,6 +9,7 @@ const VideoPresentation = lazy(() => import('@/components/sections/VideoPresenta
 const Features = lazy(() => import('@/components/sections/Features'));
 const Universities = lazy(() => import('@/components/sections/Universities'));
 const Tutors = lazy(() => import('@/components/sections/Tutors'));
+const Testimonials = lazy(() => import('@/components/sections/Testimonials'));
 const FAQ = lazy(() => import('@/components/sections/FAQ'));
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Features />
             <Universities />
             <Tutors />
+            <Testimonials />
             <FAQ />
           </Suspense>
         </main>

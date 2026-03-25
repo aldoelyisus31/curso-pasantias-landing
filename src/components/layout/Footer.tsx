@@ -2,14 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   Phone, 
-  MapPin, 
   Facebook, 
-  Twitter, 
-  Linkedin, 
   Instagram,
-  Youtube 
+  MessageCircle
 } from 'lucide-react';
-import { SITE_CONFIG, SOCIAL_LINKS, NAVIGATION_ITEMS } from '@/constants';
+import { NAVIGATION_ITEMS } from '@/constants';
 import { scrollToElement } from '@/utils';
 import { Container } from '@/components/ui';
 import logoImage from '@/assets/images/Logo/logoTRANSPARENTE.png';
@@ -28,37 +25,47 @@ const Footer: React.FC = () => {
               >
                 <img
                   src={logoImage}
-                  alt="Logo Curso CENEVAL"
+                  alt="Logo Curso-Pasantías"
                   className="h-11 w-11 rounded-lg object-contain"
                 />
                 <span className="text-xl font-bold">
-                  {SITE_CONFIG.name}
+                  Curso-Pasantías
                 </span>
               </motion.div>
               <p className="text-gray-300 text-sm leading-relaxed">
-                Preparamos a estudiantes para el éxito profesional a través de 
-                pasantías de calidad y mentorías especializadas.
+                Impulsamos tu ingreso a la universidad con una preparación especializada para el EXANI-II, combinando estrategia, práctica y acompañamiento personalizado.
               </p>
               <div className="flex space-x-4">
-                {[
-                  { icon: Facebook, href: SOCIAL_LINKS.facebook },
-                  { icon: Twitter, href: SOCIAL_LINKS.twitter },
-                  { icon: Linkedin, href: SOCIAL_LINKS.linkedin },
-                  { icon: Instagram, href: SOCIAL_LINKS.instagram },
-                  { icon: Youtube, href: SOCIAL_LINKS.youtube },
-                ].map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-gray-800 hover:bg-primary-600 rounded-lg transition-colors duration-200"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <social.icon className="h-4 w-4" />
-                  </motion.a>
-                ))}
+                <motion.a
+                  href="https://www.facebook.com/search/top?q=curso-pasant%C3%ADas"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-gray-800 hover:bg-blue-600 rounded-lg transition-colors duration-200"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Facebook className="h-4 w-4" />
+                </motion.a>
+                <motion.a
+                  href="https://www.instagram.com/curso_pasantias_exani_ii?igsh=NXdvdnNqdnpiOWph"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-gray-800 hover:bg-pink-600 rounded-lg transition-colors duration-200"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Instagram className="h-4 w-4" />
+                </motion.a>
+                <motion.a
+                  href="https://wa.me/526181316769"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-gray-800 hover:bg-green-600 rounded-lg transition-colors duration-200"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <MessageCircle className="h-4 w-4" />
+                </motion.a>
               </div>
             </div>
 
@@ -82,14 +89,9 @@ const Footer: React.FC = () => {
             {/* Services */}
             <div className="space-y-4">
               <h3 className="text-lg font-semibold">Servicios</h3>
-              <ul className="space-y-2 text-gray-300 text-sm">
-                <li>Mentoría Personalizada</li>
-                <li>Búsqueda de Pasantías</li>
-                <li>Preparación para Entrevistas</li>
-                <li>Desarrollo de CV</li>
-                <li>Networking Profesional</li>
-                <li>Certificación</li>
-              </ul>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                Convierte tu esfuerzo en resultados: prepárate para el EXANI-II con un método estratégico, clases claras y acompañamiento que sí hace la diferencia.
+              </p>
             </div>
 
             {/* Contact */}
@@ -99,15 +101,11 @@ const Footer: React.FC = () => {
                 <div className="flex items-start space-x-3">
                   <Phone className="h-4 w-4 mt-0.5 text-primary-400" />
                   <a
-                    href={`tel:${SITE_CONFIG.phone}`}
+                    href="tel:+526181316769"
                     className="hover:text-white transition-colors duration-200"
                   >
-                    {SITE_CONFIG.phone}
+                    +52 618 131 6769
                   </a>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <MapPin className="h-4 w-4 mt-0.5 text-primary-400" />
-                  <span>{SITE_CONFIG.address}</span>
                 </div>
               </div>
             </div>
@@ -119,28 +117,8 @@ const Footer: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-sm text-gray-300">
               <span>
-                © {new Date().getFullYear()} {SITE_CONFIG.name}. Todos los derechos reservados.
+                © {new Date().getFullYear()} Curso-Pasantías. Todos los derechos reservados.
               </span>
-              <div className="flex space-x-6">
-                <a
-                  href="/privacy"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Privacidad
-                </a>
-                <a
-                  href="/terms"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Términos
-                </a>
-                <a
-                  href="/cookies"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Cookies
-                </a>
-              </div>
             </div>
             <div className="text-sm text-gray-400">
               Hecho con ❤️ para estudiantes
