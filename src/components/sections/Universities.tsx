@@ -136,11 +136,11 @@ const Universities: React.FC = () => {
         </div>
 
         {/* Regions Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-wrap justify-center gap-8">
           {regions.map((region, index) => (
             <motion.div
               key={region.id}
-              className="group perspective-1000"
+              className="group perspective-1000 w-full md:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)]"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}

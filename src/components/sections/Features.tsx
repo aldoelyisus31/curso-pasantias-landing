@@ -49,7 +49,7 @@ const Features: React.FC = () => {
             whileHover={{ y: -8 }}
           >
             {/* Icon */}
-            <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-xl mb-6 group-hover:bg-primary-600 transition-colors duration-300">
+            <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-xl mb-6 group-hover:bg-primary-600 transition-colors duration-300 mx-auto">
               <feature.icon className="h-8 w-8 text-primary-600 group-hover:text-white transition-colors duration-300" />
             </div>
 
@@ -57,7 +57,7 @@ const Features: React.FC = () => {
             <h3 className="text-xl font-bold text-gray-900 mb-4">
               {feature.title}
             </h3>
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <p className="text-gray-600 mb-6 leading-relaxed text-justify">
               {feature.description}
             </p>
           </motion.div>

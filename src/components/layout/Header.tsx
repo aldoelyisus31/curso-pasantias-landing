@@ -52,7 +52,7 @@ const Header: React.FC = () => {
                   isScrolled ? 'text-gray-900' : 'text-white'
                 )}
               >
-                Curso-Pasantias
+                Curso-Pasantías
               </span>
               <span
                 className={cn(
@@ -60,7 +60,7 @@ const Header: React.FC = () => {
                   isScrolled ? 'text-gray-600' : 'text-white/85'
                 )}
               >
-                Pasas tú, Pasamos todos.
+                Pasas tú-Pasamos todos.
               </span>
             </div>
           </motion.div>

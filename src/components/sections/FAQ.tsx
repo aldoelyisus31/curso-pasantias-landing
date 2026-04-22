@@ -21,10 +21,10 @@ const FAQ: React.FC = () => {
       question: '¿Qué es el examen CENEVAL EXANI-II?',
       answer: 'El EXANI-II es un examen de admisión utilizado por la gran mayoría de las universidades públicas e institutos tecnológicos en México para evaluar las competencias académicas de los aspirantes.',
     },
-    {
+    /*{
       question: '¿Cuándo inician las clases?',
       answer: 'Nuestro próximo grupo inicia el sábado 28 de febrero. Las clases se imparten los fines de semana para que puedas estudiar sin interrumpir tus actividades actuales.',
-    },
+    },*/
     {
       question: '¿Si falto a una clase en vivo, la puedo reponer?',
       answer: '¡Sí! Todas nuestras clases 100% en vivo quedan grabadas en nuestra plataforma. Podrás acceder a ellas y a los materiales de apoyo en cualquier momento para repasar.',
@@ -39,16 +39,16 @@ const FAQ: React.FC = () => {
     },
     {
       question: '¿Qué incluye el material de estudio?',
-      answer: 'Recibes guías de estudio actualizadas, simuladores de examen, banco de más de 2000 preguntas, videos explicativos y acceso a nuestra plataforma digital las 24 horas.',
+      answer: 'Recibes guías de estudio actualizadas, simuladores de examen, videos explicativos y acceso a tutores altamente capacitados para tu preparación.',
     },
     {
       question: '¿Cuántos estudiantes hay por grupo?',
-      answer: 'Mantenemos grupos reducidos de máximo 15 estudiantes para garantizar atención personalizada y que todos puedan participar activamente en las clases.',
+      answer: 'En nuestros cursos en vivo mantenemos grupos reducidos para garantizar atención personalizada y que todos puedan participar activamente en las clases.',
     },
-    {
+    /*{
       question: '¿Qué pasa si no paso el examen?',
       answer: 'Ofrecemos garantía de satisfacción. Si sigues nuestro programa completo y no obtienes el puntaje necesario, te damos un curso de refuerzo sin costo adicional.',
-    },
+    },*/
   ];
 
   return (

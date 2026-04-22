@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   const whatsappNumber = "526181316769";
-  const whatsappMessage = "Hola! Quisiera inscribirme al curso de preparación para CENEVAL que inicia el 28 de febrero.";
+  const whatsappMessage = "Hola! Quisiera recibir más información sobre el curso de preparación para el examen CENEVAL EXANI-II 🙌🏻";
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900">

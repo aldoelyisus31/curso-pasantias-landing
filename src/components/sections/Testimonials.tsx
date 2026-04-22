@@ -72,7 +72,7 @@ const Testimonials: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Miles de estudiantes han logrado ingresar a su universidad de sueños con nuestro curso. 
+            Nuestros estudiantes han logrado ingresar a su universidad de sueños con nuestro curso. 
             Estas son sus experiencias reales.
           </motion.p>
         </div>

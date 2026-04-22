@@ -15,7 +15,7 @@ export const SITE_CONFIG = {
   email: 'admisiones@ceneval-mx.com',
   phone: '+52 6181316769',
   address: 'Durango, Dgo, México',
-  whatsapp: 'https://wa.me/526181316769?text=Hola!%20Quiero%20información%20sobre%20el%20curso%20CENEVAL',
+  whatsapp: 'https://wa.me/526181316769?text=Hola!%20Quisiera%20recibir%20m%C3%A1s%20información%20sobre%20el%20curso%20de%20preparación%20para%20el%20examen%20CENEVAL%20EXANI-II%20🙌🏻',
 };
 
 export const NAVIGATION_ITEMS: NavItem[] = [
@@ -30,7 +30,7 @@ export const NAVIGATION_ITEMS: NavItem[] = [
 export const FEATURES: Feature[] = [
   {
     id: 'hours',
-    title: '50 horas de Preparación.',
+    title: '50 horas de preparación',
     description: 'Modúlos Base, Inglés y Módulos específicos de acuerdo la carrera objetivo.',
     icon: Clock,
     href: '#hours',

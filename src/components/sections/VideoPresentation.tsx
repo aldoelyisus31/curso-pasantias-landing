@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Play, Users, Award, Clock } from 'lucide-react';
+import { Play, Users, Award, Clock, GraduationCap } from 'lucide-react';
 import { Section } from '@/components/ui';
-import presentationVideo from '@/assets/video/video_presentacion.mp4';
+import presentationVideo from '@/assets/video/curso pasantias.mp4';
 
 const VideoPresentation: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -123,31 +123,25 @@ const VideoPresentation: React.FC = () => {
           {/* Features List */}
           <div className="space-y-4">
             <div className="flex items-start space-x-3">
-              <div className="w-6 h-6 bg-rose-600 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                <div className="w-2 h-2 bg-white rounded-full" />
-              </div>
+              <GraduationCap className="w-6 h-6 text-rose-600 mt-0.5 flex-shrink-0" />
               <div>
-                <h4 className="font-semibold text-gray-900 mb-1">Metodología Comprobada</h4>
+                <h4 className="font-bold text-gray-900 mb-1 text-sm">Metodología Comprobada</h4>
                 <p className="text-gray-600 text-sm">Sistema estructurado con resultados exitosos.</p>
               </div>
             </div>
             
             <div className="flex items-start space-x-3">
-              <div className="w-6 h-6 bg-rose-600 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                <div className="w-2 h-2 bg-white rounded-full" />
-              </div>
+              <GraduationCap className="w-6 h-6 text-rose-600 mt-0.5 flex-shrink-0" />
               <div>
-                <h4 className="font-semibold text-gray-900 mb-1">Tutores Especialistas</h4>
+                <h4 className="font-bold text-gray-900 mb-1 text-sm">Tutores Especialistas</h4>
                 <p className="text-gray-600 text-sm">Profesionales con experiencia académica.</p>
               </div>
             </div>
             
             <div className="flex items-start space-x-3">
-              <div className="w-6 h-6 bg-rose-600 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                <div className="w-2 h-2 bg-white rounded-full" />
-              </div>
+              <GraduationCap className="w-6 h-6 text-rose-600 mt-0.5 flex-shrink-0" />
               <div>
-                <h4 className="font-semibold text-gray-900 mb-1">Acompañamiento Personalizado</h4>
+                <h4 className="font-bold text-gray-900 mb-1 text-sm">Acompañamiento Personalizado</h4>
                 <p className="text-gray-600 text-sm">Seguimiento individual y grupal durante todo el proceso</p>
               </div>
             </div>
