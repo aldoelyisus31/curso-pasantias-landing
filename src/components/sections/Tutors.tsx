@@ -107,7 +107,7 @@ const tutors = [
   {
     id: 11,
     name: 'María de la Luz Alemán Ceniceros',
-    subject: 'Educación y Ciencias Cognitivas',
+    subject: 'Filosofía',
     icon: BookOpen,
     specialization: 'Lic. en Educación con mención honorífica',
     description: 'Miembro del Instituto de Filosofía Durango. Asesora y capacitadora docente. Maestrante en Ciencias Cognitivas (Antropología, Epistemología y Filosofía de la mente, Psicología cognitiva y Cognición social).',

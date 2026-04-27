@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Play, Users, Award, Clock, GraduationCap } from 'lucide-react';
 import { Section } from '@/components/ui';
-import presentationVideo from '@/assets/video/curso pasantias.mp4';
+import presentationVideo from '@/assets/video/video_presentacion.mp4';
 
 const VideoPresentation: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
