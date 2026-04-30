@@ -5,15 +5,33 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function scrollToElement(elementId: string, offset: number = 80) {
-  const element = document.getElementById(elementId.replace('#', ''));
-  if (element) {
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - offset;
+  const id = elementId.replace('#', '');
+  
+  // Función para intentar scroll
+  const attemptScroll = () => {
+    const element = document.getElementById(id);
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - offset;
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth',
-    });
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+      return true;
+    }
+    return false;
+  };
+
+  // Intento inmediato
+  if (!attemptScroll()) {
+    // Si no funciona, reintenta después de un pequeño delay (para lazy loading)
+    setTimeout(() => {
+      if (!attemptScroll()) {
+        // Último intento con más tiempo
+        setTimeout(attemptScroll, 300);
+      }
+    }, 100);
   }
 }
 

@@ -112,6 +112,14 @@ const tutors = [
     specialization: 'Lic. en Educación con mención honorífica',
     description: 'Miembro del Instituto de Filosofía Durango. Asesora y capacitadora docente. Maestrante en Ciencias Cognitivas (Antropología, Epistemología y Filosofía de la mente, Psicología cognitiva y Cognición social).',
   },
+  {
+    id: 12,
+    name: 'Guadalupe Monserrat García Soto',
+    subject: 'Aritmética',
+    icon: Target,
+    specialization: 'Dra. en Gestión Educativa',
+    description: 'Lic. en Educación Primaria, Mtra. en Psicología Educativa y Dra. en Gestión Educativa. Esp. en Terapia Educativa para el Logro del Aprendizaje Significativo y Esp. en Psicología del niño y adolescente.',
+  },
 ];
 
 const Tutors: React.FC = () => {
@@ -180,41 +188,42 @@ const Tutors: React.FC = () => {
           {tutors.map((tutor, index) => (
             <motion.div
               key={tutor.id}
-              className="relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group cursor-pointer border border-gray-100 hover:border-orange-200"
+              className="relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 group cursor-pointer border border-gray-100 hover:border-orange-200"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -12, scale: 1.02 }}
+              style={{ willChange: 'transform' }}
             >
               {/* Decorative gradient border */}
-              <div className="absolute inset-0 bg-gradient-to-br from-rose-500 to-slate-600 rounded-2xl opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm" />
+              <div className="absolute inset-0 bg-gradient-to-br from-rose-500 to-slate-600 rounded-2xl opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200 -z-10 blur-sm" />
               
               {/* Content Section */}
               <div className="p-8 relative h-full flex flex-col justify-between min-h-[320px]">
                 <div>
                   {/* Header with Icon and Subject */}
                   <div className="flex items-center space-x-3 mb-6">
-                    <div className="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center lg:group-hover:bg-white/20 transition-colors duration-300 border border-rose-100 lg:group-hover:border-white/30 shrink-0">
-                      <tutor.icon className="h-6 w-6 text-rose-500 lg:group-hover:text-white transition-colors duration-300" />
+                    <div className="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center lg:group-hover:bg-white/20 transition-colors duration-200 border border-rose-100 lg:group-hover:border-white/30 shrink-0">
+                      <tutor.icon className="h-6 w-6 text-rose-500 lg:group-hover:text-white transition-colors duration-200" />
                     </div>
-                    <span className="text-gray-600 font-semibold text-sm lg:group-hover:text-white transition-colors duration-300">
+                    <span className="text-gray-600 font-semibold text-sm lg:group-hover:text-white transition-colors duration-200">
                       {tutor.subject}
                     </span>
                   </div>
 
                   {/* Name */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 lg:group-hover:text-white transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 lg:group-hover:text-white transition-colors duration-200">
                     {tutor.name}
                   </h3>
 
                   {/* Specialization */}
-                  <p className="text-rose-600 font-semibold text-sm mb-4 lg:group-hover:text-rose-200 transition-colors duration-300">
+                  <p className="text-rose-600 font-semibold text-sm mb-4 lg:group-hover:text-rose-200 transition-colors duration-200">
                     {tutor.specialization}
                   </p>
 
                   {/* Description */}
-                  <p className="text-gray-600 text-sm leading-relaxed text-justify lg:group-hover:text-gray-100 transition-colors duration-300">
+                  <p className="text-gray-600 text-sm leading-relaxed text-justify lg:group-hover:text-gray-100 transition-colors duration-200">
                     {tutor.description}
                   </p>
                 </div>
@@ -224,20 +233,19 @@ const Tutors: React.FC = () => {
                   {[...Array(5)].map((_, i) => (
                     <div
                       key={i}
-                      className="w-2 h-2 bg-gradient-to-r from-rose-400 to-slate-400 rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-300"
-                      style={{ animationDelay: `${i * 50}ms` }}
+                      className="w-2 h-2 bg-gradient-to-r from-rose-400 to-slate-400 rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-200"
                     />
                   ))}
                 </div>
 
                 {/* Simplified background pattern */}
-                <div className="absolute inset-0 opacity-3 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none rounded-3xl overflow-hidden">
+                <div className="absolute inset-0 opacity-3 group-hover:opacity-5 transition-opacity duration-200 pointer-events-none rounded-3xl overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-rose-500 to-slate-600 rounded-full blur-2xl transform translate-x-10 -translate-y-10" />
                 </div>
               </div>
 
               {/* Subtle shine effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-out pointer-events-none" />
             </motion.div>
           ))}
         </div>

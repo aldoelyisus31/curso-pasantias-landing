@@ -6,7 +6,7 @@ export default function Hero() {
   const whatsappMessage = "Hola! Quisiera recibir más información sobre el curso de preparación para el examen CENEVAL EXANI-II 🙌🏻";
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900">
       {/* Background Parallax Image */}
       <div 
         className="absolute inset-0 z-0 opacity-30 bg-cover bg-center bg-fixed"

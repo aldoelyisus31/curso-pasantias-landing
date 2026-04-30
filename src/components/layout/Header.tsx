@@ -15,9 +15,17 @@ const Header: React.FC = () => {
   const isScrolled = scrollY > 20;
   const currentLogo = isScrolled ? logoTransparent : logoWithBackground;
 
-  const handleNavClick = (href: string) => {
-    scrollToElement(href);
-    setIsMobileMenuOpen(false);
+  const handleNavClick = (href: string, isMobile: boolean = false) => {
+    if (isMobile) {
+      // Cerrar menú primero para evitar interferencias
+      setIsMobileMenuOpen(false);
+      // Esperar a que termine la animación de cierre antes de hacer scroll
+      setTimeout(() => {
+        scrollToElement(href);
+      }, 350);
+    } else {
+      scrollToElement(href);
+    }
   };
 
   return (
@@ -70,6 +78,7 @@ const Header: React.FC = () => {
             {NAVIGATION_ITEMS.map((item) => (
               <motion.button
                 key={item.href}
+                type="button"
                 onClick={() => handleNavClick(item.href)}
                 className={cn(
                   'font-medium transition-colors duration-200',
@@ -118,7 +127,8 @@ const Header: React.FC = () => {
                 {NAVIGATION_ITEMS.map((item) => (
                   <button
                     key={item.href}
-                    onClick={() => handleNavClick(item.href)}
+                    type="button"
+                    onClick={() => handleNavClick(item.href, true)}
                     className="text-left text-gray-700 hover:text-primary-600 font-medium py-2 transition-colors duration-200"
                   >
                     {item.label}
